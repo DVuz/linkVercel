@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Learning Journey</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .bg-girl-background {
+            background-image: url('https://res.cloudinary.com/dfizo8h6h/image/upload/v1748938487/imgonline-com-ua-twotoone-rHdM39C83i_c4swba.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .glow-effect {
+            box-shadow: 0 0 25px rgba(255, 255, 255, 0.2);
+        }
+
+        .hover-glow:hover {
+            box-shadow: 0 0 35px rgba(255, 255, 255, 0.4);
+            transform: translateY(-3px);
+        }
+
+        .text-shadow-strong {
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8),
+                         0 0 15px rgba(0, 0, 0, 0.6);
+        }
+
+        /* Left Girl Animation Zone - Cao hơn (Ảnh cũ) */
+        @keyframes leftGirlFloat {
+            0%, 100% { transform: translateY(-20px) rotate(0deg) scale(1); }
+            25% { transform: translateY(-40px) rotate(2deg) scale(1.03); }
+            50% { transform: translateY(-60px) rotate(0deg) scale(1.05); }
+            75% { transform: translateY(-40px) rotate(-2deg) scale(1.03); }
+        }
+        .left-girl-float {
+            animation: leftGirlFloat 6s ease-in-out infinite;
+        }
+
+        @keyframes leftGirlGlow {
+            0%, 100% {
+                box-shadow: 0 0 120px rgba(255, 182, 193, 0.5),
+                           0 0 240px rgba(147, 51, 234, 0.4);
+            }
+            50% {
+                box-shadow: 0 0 180px rgba(255, 182, 193, 0.7),
+                           0 0 360px rgba(147, 51, 234, 0.6);
+            }
+        }
+        .left-girl-glow {
+            animation: leftGirlGlow 4s ease-in-out infinite;
+        }
+
+        /* Right Girl Animation Zone - Thấp hơn (Ảnh mới) */
+        @keyframes rightGirlFloat {
+            0%, 100% { transform: translateY(20px) rotate(0deg) scale(1); }
+            25% { transform: translateY(0px) rotate(-2deg) scale(1.02); }
+            50% { transform: translateY(-10px) rotate(0deg) scale(1.04); }
+            75% { transform: translateY(0px) rotate(2deg) scale(1.02); }
+        }
+        .right-girl-float {
+            animation: rightGirlFloat 7s ease-in-out infinite;
+            animation-delay: 1.5s;
+        }
+
+        @keyframes rightGirlGlow {
+            0%, 100% {
+                box-shadow: 0 0 100px rgba(255, 165, 0, 0.5),
+                           0 0 200px rgba(255, 69, 0, 0.4);
+            }
+            50% {
+                box-shadow: 0 0 160px rgba(255, 165, 0, 0.7),
+                           0 0 320px rgba(255, 69, 0, 0.6);
+            }
+        }
+        .right-girl-glow {
+            animation: rightGirlGlow 5s ease-in-out infinite;
+            animation-delay: 1s;
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .girl-rotate {
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes reverseRotate {
+            0% { transform: rotate(360deg); }
+            100% { transform: rotate(0deg); }
+        }
+        .girl-reverse-rotate {
+            animation: reverseRotate 15s linear infinite;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+        .heartbeat {
+            animation: heartbeat 2s ease-in-out infinite;
+        }
+
+        @keyframes sparkle {
+            0%, 100% { opacity: 0.4; transform: scale(1) rotate(0deg); }
+            50% { opacity: 1; transform: scale(1.3) rotate(180deg); }
+        }
+        .sparkle {
+            animation: sparkle 2s ease-in-out infinite;
+        }
+
+        @keyframes slideUp {
+            0% { opacity: 0; transform: translateY(100px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        .slide-up {
+            animation: slideUp 1s ease-out;
+        }
+
+        /* Orbiting Animation */
+        @keyframes orbit {
+            0% { transform: rotate(0deg) translateX(80px) rotate(0deg); }
+            100% { transform: rotate(360deg) translateX(80px) rotate(-360deg); }
+        }
+        .orbit {
+            animation: orbit 12s linear infinite;
+        }
+
+        @keyframes reverseOrbit {
+            0% { transform: rotate(0deg) translateX(100px) rotate(0deg); }
+            100% { transform: rotate(-360deg) translateX(100px) rotate(360deg); }
+        }
+        .reverse-orbit {
+            animation: reverseOrbit 15s linear infinite;
+        }
+    </style>
+</head>
+<body class="min-h-screen bg-girl-background overflow-x-hidden">
+    <!-- Left Girl Animation Zone - Cao hơn (Ảnh cũ) -->
+    <div class="fixed top-1/3 left-12 transform -translate-y-1/2 pointer-events-none z-10">
+        <div class="left-girl-float">
+            <div class="relative">
+                <img src="https://res.cloudinary.com/dfizo8h6h/image/upload/v1748937840/image_-_Copy_mkjx21.png"
+                     alt="Beautiful Girl Left"
+                     class="w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 object-cover rounded-full left-girl-glow border-4 border-pink-300/40">
+
+                <!-- Rotating Borders -->
+                <div class="absolute -inset-4 border-4 border-dashed border-pink-400/60 rounded-full girl-rotate"></div>
+                <div class="absolute -inset-8 border-2 border-dotted border-purple-400/50 rounded-full girl-reverse-rotate"></div>
+            </div>
+        </div>
+
+        <!-- Floating Elements Around Left Girl -->
+        <div class="absolute -top-12 -left-8 text-pink-400/70 heartbeat text-2xl">❤️</div>
+        <div class="absolute -top-6 right-6 text-red-400/70 heartbeat text-xl" style="animation-delay: 0.5s;">💖</div>
+        <div class="absolute top-12 -right-8 text-pink-500/70 heartbeat text-2xl" style="animation-delay: 1s;">💕</div>
+        <div class="absolute bottom-6 -left-6 text-purple-400/70 heartbeat text-xl" style="animation-delay: 1.5s;">💜</div>
+
+        <!-- Floating Stars -->
+        <div class="absolute -top-20 left-16 text-yellow-400/70 sparkle text-xl">⭐</div>
+        <div class="absolute top-2 -right-16 text-yellow-300/70 sparkle text-lg" style="animation-delay: 1s;">✨</div>
+        <div class="absolute -bottom-16 -left-12 text-yellow-400/70 sparkle text-xl" style="animation-delay: 2s;">🌟</div>
+
+        <!-- Orbiting Elements -->
+        <div class="absolute inset-0">
+            <div class="orbit">
+                <div class="text-pink-400/60 text-lg">🦋</div>
+            </div>
+        </div>
+        <div class="absolute inset-0">
+            <div class="reverse-orbit">
+                <div class="text-purple-400/60 text-lg">🌸</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Right Girl Animation Zone - Thấp hơn (Ảnh mới) -->
+    <div class="fixed top-2/3 right-12 transform -translate-y-1/2 pointer-events-none z-10">
+        <div class="right-girl-float">
+            <div class="relative">
+                <img src="https://res.cloudinary.com/dfizo8h6h/image/upload/v1748938841/%C3%81nh_D%C6%B0%C6%A1ng_s_facebook_2023-4-17_story_1_nm0n4s.jpg"
+                     alt="Beautiful Girl Right"
+                     class="w-72 h-72 md:w-88 md:h-88 lg:w-[400px] lg:h-[400px] object-cover rounded-full right-girl-glow border-4 border-orange-300/40">
+
+                <!-- Rotating Borders -->
+                <div class="absolute -inset-6 border-4 border-dashed border-orange-400/60 rounded-full girl-reverse-rotate"></div>
+                <div class="absolute -inset-10 border-2 border-dotted border-red-400/50 rounded-full girl-rotate"></div>
+            </div>
+        </div>
+
+        <!-- Floating Elements Around Right Girl -->
+        <div class="absolute -top-10 -right-10 text-orange-400/70 heartbeat text-2xl">🧡</div>
+        <div class="absolute -top-4 left-8 text-red-400/70 heartbeat text-xl" style="animation-delay: 0.7s;">❤️</div>
+        <div class="absolute top-14 -left-10 text-yellow-400/70 heartbeat text-2xl" style="animation-delay: 1.2s;">💛</div>
+        <div class="absolute bottom-4 -right-4 text-orange-500/70 heartbeat text-xl" style="animation-delay: 1.8s;">🧡</div>
+
+        <!-- Floating Stars -->
+        <div class="absolute -top-24 -right-8 text-orange-300/70 sparkle text-xl">🌟</div>
+        <div class="absolute top-0 left-20 text-yellow-400/70 sparkle text-lg" style="animation-delay: 1.5s;">⭐</div>
+        <div class="absolute -bottom-20 left-8 text-orange-300/70 sparkle text-xl" style="animation-delay: 2.5s;">✨</div>
+
+        <!-- Orbiting Elements -->
+        <div class="absolute inset-0">
+            <div class="orbit" style="animation-duration: 14s;">
+                <div class="text-orange-400/60 text-lg">🌺</div>
+            </div>
+        </div>
+        <div class="absolute inset-0">
+            <div class="reverse-orbit" style="animation-duration: 18s;">
+                <div class="text-red-400/60 text-lg">🌹</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content Container -->
+    <div class="relative min-h-screen flex items-end justify-center">
+        <!-- Compact Bottom Links Section -->
+        <div class="w-full max-w-4xl px-4 pb-12">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 slide-up">
+                <!-- React Link -->
+                <div class="glass-card rounded-2xl p-6 glow-effect hover-glow transition-all duration-500 transform hover:scale-105">
+                    <a href="https://nextjs-xi-five-76.vercel.app/" target="_blank" class="block text-center">
+                        <div class="w-16 h-16 bg-gradient-to-r from-blue-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4 shadow-xl">
+                            <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M14.23 12.004a2.236 2.236 0 0 1-2.235 2.236 2.236 2.236 0 0 1-2.236-2.236 2.236 2.236 0 0 1 2.235-2.236 2.236 2.236 0 0 1 2.236 2.236zm2.648-10.69c-1.346 0-3.107.96-4.888 2.622-1.78-1.653-3.542-2.602-4.887-2.602-.41 0-.783.093-1.106.278-1.375.793-1.683 3.264-.973 6.365C1.98 8.917 0 10.42 0 12.004c0 1.59 1.99 3.097 5.043 4.03-.704 3.113-.39 5.588.988 6.38.32.187.69.275 1.102.275 1.345 0 3.107-.96 4.888-2.624 1.78 1.654 3.542 2.603 4.887 2.603.41 0 .783-.09 1.106-.275 1.374-.792 1.683-3.263.973-6.365C22.02 15.096 24 13.59 24 12.004c0-1.59-1.99-3.097-5.043-4.032.704-3.11.39-5.587-.988-6.38-.318-.184-.688-.277-1.092-.278zm-.005 1.09v.006c.225 0 .406.044.558.127.666.382.955 1.835.73 3.704-.054.46-.142.945-.25 1.44-.96-.236-2.006-.417-3.107-.534-.66-.905-1.345-1.727-2.035-2.447 1.592-1.48 3.087-2.292 4.105-2.295zm-9.77.02c1.012 0 2.514.808 4.11 2.28-.686.72-1.37 1.537-2.02 2.442-1.107.117-2.154.298-3.113.538-.112-.49-.195-.964-.254-1.42-.23-1.868.054-3.32.714-3.707.19-.09.4-.127.563-.132zm4.882 3.05c.455.468.91.992 1.36 1.564-.44-.02-.89-.034-1.36-.034-.46 0-.915.01-1.36.034.44-.572.895-1.096 1.36-1.564zM12 8.1c.74 0 1.477.034 2.202.093.406.582.802 1.203 1.183 1.86.372.64.71 1.29 1.018 1.946-.308.655-.646 1.31-1.013 1.95-.38.66-.773 1.288-1.18 1.87-.728.063-1.466.098-2.21.098-.74 0-1.477-.035-2.202-.093-.406-.582-.802-1.204-1.183-1.86-.372-.64-.71-1.29-1.018-1.946.303-.657.646-1.313 1.013-1.954.38-.66.773-1.286 1.18-1.866.728-.064 1.466-.098 2.21-.098zm-3.635.254c-.24.377-.48.763-.704 1.16-.225.39-.435.782-.635 1.174-.265-.656-.49-1.31-.676-1.947.64-.15 1.315-.283 2.015-.386zm7.26 0c.695.103 1.365.23 2.006.387-.18.632-.405 1.282-.66 1.933-.2-.39-.41-.783-.64-1.174-.225-.392-.465-.774-.705-1.146zm3.063.675c.484.15.944.317 1.375.498 1.732.74 2.852 1.708 2.852 2.476-.005.768-1.125 1.74-2.857 2.475-.42.18-.88.342-1.355.493-.28-.958-.646-1.956-1.1-2.98.45-1.017.81-2.01 1.085-2.964zm-13.395.004c.278.96.645 1.957 1.1 2.98-.45 1.017-.812 2.01-1.086 2.964-.484-.15-.944-.318-1.37-.5-1.732-.737-2.852-1.706-2.852-2.474 0-.768 1.12-1.742 2.852-2.476.42-.18.88-.342 1.356-.494zm11.678 4.28c.265.657.49 1.312.676 1.948-.64.157-1.316.29-2.016.39.24-.375.48-.762.705-1.158.225-.39.435-.788.636-1.18zm-9.945.02c.2.392.41.783.64 1.175.23.39.465.772.705 1.143-.695-.102-1.365-.23-2.006-.386.18-.63.406-1.282.66-1.933zM17.92 16.32c.112.493.2.968.254 1.423.23 1.868-.054 3.32-.714 3.708-.147.09-.338.128-.563.128-1.012 0-2.514-.807-4.11-2.28.686-.72 1.37-1.536 2.02-2.44 1.107-.118 2.154-.3 3.113-.54zm-11.83.01c.96.234 2.006.415 3.107.532.66.905 1.345 1.727 2.035 2.446-1.595 1.483-3.092 2.295-4.11 2.295-.22-.005-.406-.05-.553-.132-.666-.38-.955-1.834-.73-3.703.054-.46.142-.944.25-1.438zm4.56.64c.44.02.89.034 1.36.034.47 0 .915-.01 1.36-.034-.44.572-.895 1.095-1.36 1.56-.465-.467-.92-.992-1.36-1.56z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2 text-shadow-strong">Học React</h3>
+                        <p class="text-white/90 text-sm mb-3 text-shadow-strong">React & Next.js</p>
+                        <div class="flex flex-wrap justify-center gap-2">
+                            <span class="px-3 py-1 bg-blue-500/50 text-blue-100 rounded-full text-xs font-medium">React</span>
+                            <span class="px-3 py-1 bg-blue-600/50 text-blue-100 rounded-full text-xs font-medium">Next.js</span>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Frontend Link -->
+                <div class="glass-card rounded-2xl p-6 glow-effect hover-glow transition-all duration-500 transform hover:scale-105" style="animation-delay: 0.2s;">
+                    <a href="https://learn-two-tau.vercel.app/" target="_blank" class="block text-center">
+                        <div class="w-16 h-16 bg-gradient-to-r from-green-500 to-emerald-600 rounded-full flex items-center justify-center mx-auto mb-4 shadow-xl">
+                            <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2 text-shadow-strong">Học Frontend</h3>
+                        <p class="text-white/90 text-sm mb-3 text-shadow-strong">HTML/CSS/JS</p>
+                        <div class="flex flex-wrap justify-center gap-2">
+                            <span class="px-3 py-1 bg-green-500/50 text-green-100 rounded-full text-xs font-medium">HTML/CSS</span>
+                            <span class="px-3 py-1 bg-emerald-500/50 text-emerald-100 rounded-full text-xs font-medium">JavaScript</span>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Google Drive Link -->
+                <div class="glass-card rounded-2xl p-6 glow-effect hover-glow transition-all duration-500 transform hover:scale-105" style="animation-delay: 0.4s;">
+                    <a href="https://drive.google.com/file/d/1qUV69mlrOzsF3SkJgOjr8Bt54-c7HKAs/view" target="_blank" class="block text-center">
+                        <div class="w-16 h-16 bg-gradient-to-r from-yellow-500 to-orange-500 rounded-full flex items-center justify-center mx-auto mb-4 shadow-xl">
+                            <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM14 13v4h-4v-4H7l5-5 5 5h-3z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2 text-shadow-strong">Tài liệu</h3>
+                        <p class="text-white/90 text-sm mb-3 text-shadow-strong">Google Drive</p>
+                        <div class="flex flex-wrap justify-center gap-2">
+                            <span class="px-3 py-1 bg-yellow-500/50 text-yellow-100 rounded-full text-xs font-medium">Docs</span>
+                            <span class="px-3 py-1 bg-orange-500/50 text-orange-100 rounded-full text-xs font-medium">Images</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Enhanced Floating particles effect -->
+    <div class="fixed inset-0 overflow-hidden pointer-events-none">
+        <div class="absolute top-1/4 left-1/3 w-4 h-4 bg-white/60 rounded-full sparkle"></div>
+        <div class="absolute top-3/4 right-1/3 w-3 h-3 bg-pink-300/60 rounded-full sparkle" style="animation-delay: 1s;"></div>
+        <div class="absolute top-1/2 left-2/3 w-5 h-5 bg-purple-300/60 rounded-full sparkle" style="animation-delay: 2s;"></div>
+        <div class="absolute top-1/6 right-1/2 w-3 h-3 bg-yellow-300/60 rounded-full sparkle" style="animation-delay: 3s;"></div>
+        <div class="absolute bottom-1/4 left-1/2 w-4 h-4 bg-blue-300/60 rounded-full sparkle" style="animation-delay: 4s;"></div>
+        <div class="absolute top-3/4 left-1/4 w-3 h-3 bg-green-300/60 rounded-full sparkle" style="animation-delay: 5s;"></div>
+    </div>
+</body>
+</html>
